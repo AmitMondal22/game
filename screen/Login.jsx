@@ -19,7 +19,7 @@ const Login = ({ navigation }) => {
   const {isLoading,loginUser}=useContext(AuthContext);
   // const val=useContext(AuthContext);
   return (
-    <KeyboardAwareScrollView>
+    <KeyboardAwareScrollView  style={{backgroundColor:"#5cdb95"}}>
     <View style={styles.container}>
       
        <Spinner visible={isLoading}/>

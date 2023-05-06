@@ -113,7 +113,7 @@ const Register = ({ navigation }) => {
 
 
   return (
-    <KeyboardAwareScrollView>
+    <KeyboardAwareScrollView style={{backgroundColor:"#5cdb95"}} >
         
         <View style={styles.container}>
           
@@ -231,6 +231,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: normalize(50),
     borderTopLeftRadius: normalize(50),
     //  marginTop:2, 
+    
   },
 
 

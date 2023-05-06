@@ -196,75 +196,74 @@ export default Register
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: "white"
-  },
-  img_container: {
-    flex: 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-    // padding: normalize(20)
-  },
-  image: {
-    width: "100%",
-    resizeMode: 'cover',
-  },
-  content: {
-    flex: 7,
-    backgroundColor: "#379683",
-    flexDirection: 'column',
-    borderTopLeftRadius: normalize(50),
-    borderTopRightRadius: normalize(50),
-  },
-  textcontent: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: normalize(50)
+      flex: 1,
+      backgroundColor:"white",
+      flexDirection: 'column',
+    },
+    img_container: {
+      flex: 3,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding:normalize(20)
+    },
+    image: {
+      width: '100%',
+      resizeMode: 'cover',
+    },
+    content: {
+      flex: 7,
+      backgroundColor:"#379683",
+      flexDirection: 'column',
+     borderTopLeftRadius: normalize(50), 
+     borderTopRightRadius: normalize(50),
+    },
+    textcontent:{
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding:normalize(20)
+      
+    },
+    inpcontent:{
+      flex: 10,
+      backgroundColor:"#5cdb95",
+      flexDirection: 'column',
+       borderTopRightRadius: normalize(50),
+       borderTopLeftRadius: normalize(50), 
+    },
 
-  },
-  inpcontent: {
-    flex: 9,
-    backgroundColor: "#5cdb95",
-    flexDirection: 'column',
-    borderTopRightRadius: normalize(50),
-    borderTopLeftRadius: normalize(50),
-    //  marginTop:2, 
+
+    login:{
+      fontSize:normalize(30),
+      fontWeight: 'bold',
+      color:"#edf5e1"
+    },
+    inpcon:{
+      padding:normalize(50),
+      flex:8,
+      justifyContent: 'center',
+      
+    },
+    inpfil:{
+      borderBottomColor: 'white',
+      borderBottomWidth: 1,
+      marginTop:normalize(10),
+      color:"white"
+    },
+    signbtn:{
+      backgroundColor: 'white',
+      borderRadius: normalize(22),
+      paddingVertical: normalize(12),
+      paddingHorizontal: normalize(20),
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginTop:normalize(20)
+    },
+    creatAcVi:{
+      flex:2,
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingBottom:20
+    },
     
-  },
-
-
-  login: {
-    fontSize: normalize(30),
-    fontWeight: 'bold',
-    color: "#edf5e1"
-  },
-  inpcon: {
-    padding: normalize(50),
-    flex: 8,
-    justifyContent: 'center',
-
-  },
-  inpfil: {
-    borderBottomColor: 'white',
-    borderBottomWidth: 1,
-    // marginTop:0,
-    paddingTop: normalize(1),
-    color: "white"
-  },
-  signbtn: {
-    backgroundColor: 'white',
-    borderRadius: normalize(22),
-    paddingVertical: normalize(12),
-    paddingHorizontal: normalize(20),
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: normalize(20)
-  },
-  creatAcVi: {
-    flex: 3,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 })

@@ -200,6 +200,7 @@ const styles = StyleSheet.create({
   btn_text: {
     color: "black",
     fontWeight: 'bold',
+    fontSize:responsiveFontSize(2)
   },
 
 

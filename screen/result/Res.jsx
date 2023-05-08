@@ -11,10 +11,15 @@ import normalize from 'react-native-normalize';
 import FontAwesome from "react-native-vector-icons/FontAwesome5"
 import HeaderComp from '../../component/HeaderComp';
 import HomeCustComp from '../../component/HomeCustComp';
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 
 // const BASE_URL = 'http://ghoshffplay.in/api';
-const Res = ({navigation,route }) => {
+const Res = ({ navigation, route }) => {
   const isFocused = useIsFocused();
   const [gameId, setGameId] = useState();
   const [bidRes, setBidRes] = useState({});
@@ -69,65 +74,137 @@ const Res = ({navigation,route }) => {
       <LinearGradient colors={["black", "yellow"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} style={styles.cardGradient}>
         <View style={styles.card}>
           <View style={styles.infocon}>
-            <Text style={{ color: "white", fontWeight: 'bold' }}>{date}</Text>
+            <Text style={{ color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(2) }}>{date}</Text>
           </View>
           <View style={styles.infocon}>
 
 
             <View style={styles.textCont}>
-              <Text style={{ color:"#7ff8fa", marginBottom:normalize(10) }}>1 Baji</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{res_a}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{a_res}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{contactInfo.ares}</Text>
+              <Text style={{ color: "#7ff8fa", marginBottom: normalize(10), fontSize: responsiveFontSize(2) }}>1Baji </Text>
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{res_a}</Text>
+              {/* <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{a_res}</Text> */}
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{contactInfo.ares}</Text>
             </View>
             <View style={styles.textCont}>
 
-              <Text style={{ color:"#7ff8fa",marginBottom:normalize(10) }}>2 Baji</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{res_b}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{b_res}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{contactInfo.bres}</Text>
+              <Text style={{ color: "#7ff8fa", marginBottom: normalize(10) }}>2Baji </Text>
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{res_b}</Text>
+              {/* <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{b_res}</Text> */}
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{contactInfo.bres}</Text>
             </View>
             <View style={styles.textCont}>
 
-              <Text style={{ color:"#7ff8fa", marginBottom:normalize(10) }}>3 Baji</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{res_c}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{c_res}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{contactInfo.cres}</Text>
+              <Text style={{ color: "#7ff8fa", marginBottom: normalize(10), fontSize: responsiveFontSize(1.8) }}>3Baji </Text>
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{res_c}</Text>
+              {/* <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{c_res}</Text> */}
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{contactInfo.cres}</Text>
             </View>
             <View style={styles.textCont}>
 
-              <Text style={{ color:"#7ff8fa", marginBottom:normalize(10) }}>4 Baji</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{res_d}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{d_res}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{contactInfo.dres}</Text>
+              <Text style={{ color: "#7ff8fa", marginBottom: normalize(10), fontSize: responsiveFontSize(1.8) }}>4Baji </Text>
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{res_d}</Text>
+              {/* <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{d_res}</Text> */}
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{contactInfo.dres}</Text>
             </View>
             <View style={styles.textCont}>
 
-              <Text style={{ color:"#7ff8fa", marginBottom:normalize(10) }}>5 Baji</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{res_e}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{e_res}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{contactInfo.eres}</Text>
+              <Text style={{ color: "#7ff8fa", marginBottom: normalize(10), fontSize: responsiveFontSize(1.8) }}>5Baji </Text>
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{res_e}</Text>
+              {/* <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{e_res}</Text> */}
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{contactInfo.eres}</Text>
             </View>
             <View style={styles.textCont}>
 
-              <Text style={{ color:"#7ff8fa", marginBottom:normalize(10) }}>6 Baji</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{res_f}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{f_res}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{contactInfo.fres}</Text>
+              <Text style={{ color: "#7ff8fa", marginBottom: normalize(10), fontSize: responsiveFontSize(1.8) }}>6Baji </Text>
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{res_f}</Text>
+              {/* <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{f_res}</Text> */}
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{contactInfo.fres}</Text>
             </View>
             <View style={styles.textCont}>
 
-              <Text style={{ color:"#7ff8fa", marginBottom:normalize(10) }}>7 Baji</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{res_g}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{g_res}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{contactInfo.gres}</Text>
+              <Text style={{ color: "#7ff8fa", marginBottom: normalize(10), fontSize: responsiveFontSize(1.8) }}>7Baji </Text>
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{res_g}</Text>
+              {/* <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{g_res}</Text> */}
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{contactInfo.gres}</Text>
             </View>
             <View style={styles.textCont}>
 
-              <Text style={{ color:"white",marginBottom:normalize(10) }}>8 Baji</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{res_h}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{h_res}</Text>
-              <Text style={{ color: "white", fontWeight: 'bold' }}>{contactInfo.hres}</Text>
+              <Text style={{ color: "white", marginBottom: normalize(10), fontSize: responsiveFontSize(1.8) }}>8Baji</Text>
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{res_h}</Text>
+              {/* <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{h_res}</Text> */}
+              <Text style={{
+                color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.5), alignItems: "center",
+                justifyContent: "center",
+              }}>{contactInfo.hres}</Text>
             </View>
 
 
@@ -225,7 +302,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     //   paddingVertical:5
     justifyContent: "center",
-    
+
   },
   textCont: {
     fontSize: normalize(18),
@@ -260,7 +337,7 @@ const styles = StyleSheet.create({
 
   card_container: {
     flex: 1,
-  
+
     borderTopRightRadius: normalize(10),
     borderTopLeftRadius: normalize(10)
 

@@ -18,7 +18,6 @@ import HeaderComp from '../component/HeaderComp'
 import HomeCustComp from '../component/HomeCustComp'
 
 
-
 // const BASE_URL = 'http://ghoshffplay.in/api';
 const Result = ({ navigation }) => {
   const isFocused = useIsFocused();
@@ -157,6 +156,7 @@ const styles = StyleSheet.create({
     color:"black",
     
     fontWeight: 'bold',
+    fontSize:responsiveFontSize(2)
   },
 
 

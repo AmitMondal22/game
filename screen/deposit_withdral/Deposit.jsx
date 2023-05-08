@@ -8,6 +8,12 @@ import axios from 'axios';
 import { BASE_URL } from '../../src/config';
 import { AuthContext } from '../../src/context/AuthContext';
 
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
+
 
 // const BASE_URL = 'http://ghoshffplay.in/api';
 const Deposit = ({ navigation }) => {
@@ -78,7 +84,7 @@ const Deposit = ({ navigation }) => {
 
                   <View>
 
-                    <Text style={{ color: "white" }}>Choose Payment Method</Text>
+                    <Text style={{ color: "white",fontSize:responsiveFontSize(1.6) }}>Choose Payment Method</Text>
                     <Picker
                       style={styles.inpfil}
                       selectedValue={selectedLanguage}
@@ -97,7 +103,7 @@ const Deposit = ({ navigation }) => {
 
 
 
-                    <Text style={{ color: "white" }}>Enter Transation Number</Text>
+                    <Text style={{ color: "white",fontSize:responsiveFontSize(1.6) }}>Enter Transation Number</Text>
                     <TextInput
                       value={trans}
                       style={styles.inpfil}
@@ -107,7 +113,7 @@ const Deposit = ({ navigation }) => {
                       }}
                     />
 
-                    <Text style={{ color: "white" }}>Enter Amount</Text>
+                    <Text style={{ color: "white",fontSize:responsiveFontSize(1.6) }}>Enter Amount</Text>
                     <TextInput
                       value={amt}
                       style={styles.inpfil}
@@ -121,7 +127,7 @@ const Deposit = ({ navigation }) => {
                   <TouchableOpacity style={styles.signbtn} onPress={() => {
                     saveDeposit()
                   }}>
-                    <Text style={{ color: '#05386B', fontWeight: 'bold', fontSize: 20 }}>REQUEST MONEY</Text>
+                    <Text style={{ color: '#05386B', fontWeight: 'bold',fontSize:responsiveFontSize(2) }}>REQUEST MONEY</Text>
                   </TouchableOpacity>
                 </LinearGradient>
                 {/* </View> */}
@@ -184,7 +190,7 @@ const styles = StyleSheet.create({
   },
 
   textHead: {
-    fontSize: 25,
+    fontSize:responsiveFontSize(3),
     fontWeight: "bold",
     alignItems: "center",
     justifyContent: "center",

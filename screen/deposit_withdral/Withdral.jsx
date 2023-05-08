@@ -7,6 +7,13 @@ import HomeCustComp from '../../component/HomeCustComp';
 import axios from 'axios';
 import { BASE_URL } from '../../src/config';
 import { AuthContext } from '../../src/context/AuthContext';
+import { showMessage, hideMessage  } from "react-native-flash-message";
+
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 
 // const BASE_URL = 'http://ghoshffplay.in/api';
@@ -42,6 +49,24 @@ const Withdral = ({ navigation }) => {
           setAmt("")
           navigation.navigate('Transaction')
           
+        }else{
+          showMessage({
+            message: resData.data ,
+            type: "danger",
+            autoHide: true,
+            duration: 3000,
+            position: "top",
+            style: {
+              justifyContent: 'center',
+              alignItems: 'center',
+            },
+            titleStyle: {
+              textAlign: 'center',
+            },
+            descriptionStyle: {
+              textAlign: 'center',
+            },
+          });
         }
         console.log("form submit ", resData);
       }).catch(er => {
@@ -82,7 +107,7 @@ const Withdral = ({ navigation }) => {
 
                   <View>
 
-                    <Text style={{ color: "white" }}>Choose Payment Method</Text>
+                    <Text style={{ color: "white", fontSize: responsiveFontSize(1.8) }}>Choose Payment Method</Text>
                     <Picker
                       style={styles.inpfil}
                       selectedValue={selectedLanguage}
@@ -111,7 +136,7 @@ const Withdral = ({ navigation }) => {
                       }}
                     /> */}
 
-                    <Text style={{ color: "white" }}>Enter Amount</Text>
+                    <Text style={{ color: "white", fontSize: responsiveFontSize(1.8) }}>Enter Amount</Text>
                     <TextInput
                       value={amt}
                       style={styles.inpfil}
@@ -121,11 +146,14 @@ const Withdral = ({ navigation }) => {
                         setAmt(text)
                       }}
                     />
+                    
+
+{/* <Text style={{ color: "red",fontSize:responsiveFontSize(1.6) }}>Min withdraw:100</Text> */}
                   </View>
                   <TouchableOpacity style={styles.signbtn} onPress={() => {
                     saveDeposit()
                   }}>
-                    <Text style={{ color: '#05386B', fontWeight: 'bold', fontSize: 20 }}>REQUEST MONEY</Text>
+                    <Text style={{ color: '#05386B', fontWeight: 'bold', fontSize: responsiveFontSize(2.5) }}>REQUEST MONEY</Text>
                   </TouchableOpacity>
                 </LinearGradient>
                 {/* </View> */}
@@ -188,7 +216,7 @@ const styles = StyleSheet.create({
   },
 
   textHead: {
-    fontSize: 25,
+    fontSize: responsiveFontSize(3),
     fontWeight: "bold",
     alignItems: "center",
     justifyContent: "center",

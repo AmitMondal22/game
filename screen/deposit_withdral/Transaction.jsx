@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View,FlatList,ActivityIndicator,TouchableOpacity } from 'react-native'
-import React,{useContext,useState,useEffect} from 'react'
+import { StyleSheet, Text, View, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native'
+import React, { useContext, useState, useEffect } from 'react'
 import LinearGradient from 'react-native-linear-gradient';
 import HeaderComp from '../../component/HeaderComp';
 import HomeCustComp from '../../component/HomeCustComp';
@@ -11,6 +11,12 @@ import FontAwesome from "react-native-vector-icons/FontAwesome5"
 
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
+
 // const BASE_URL = 'http://ghoshffplay.in/api';
 const Transaction = ({ navigation }) => {
   const isFocused = useIsFocused();
@@ -18,12 +24,12 @@ const Transaction = ({ navigation }) => {
     if (isFocused) {
       getGameNameData();
     }
-   
+
   }, [navigation.isFocused()]);
 
-  const { userInfo,isLoading } = useContext(AuthContext);
-  const [gameTran,setgTran]=useState();
-  const getGameNameData = async() => {
+  const { userInfo, isLoading } = useContext(AuthContext);
+  const [gameTran, setgTran] = useState();
+  const getGameNameData = async () => {
     await axios.get(`${BASE_URL}/transaction`, {
       headers: {
         'Authorization': `Bearer ${userInfo.token}`
@@ -32,63 +38,61 @@ const Transaction = ({ navigation }) => {
       let resData = res.data;
       setgTran(resData);
     }).catch(er => {
-      console.log("login Network ",er);
+      console.log("login Network ", er);
     });
   }
 
 
-  const ContactList = ({contactInfo}) => {
+  const ContactList = ({ contactInfo }) => {
 
-   const fTime=(time24)=>{
+    const fTime = (time24) => {
 
-    const date = new Date(time24);
-const options = {
-  year: "numeric",
-  month: "short",
-  day: "numeric",
-  hour: "numeric",
-  minute: "numeric",
-  second: "numeric",
-  hour12: false,
-  timeZone: "America/New_York" // Replace with the desired time zone
-};
-return new Intl.DateTimeFormat("en-US", options).format(date);
+      
+        const date = new Date(time24);
+    const formattedDate = date.toLocaleDateString("en-US", { day: "2-digit", month: "2-digit", year: "numeric" });
+    const formattedTime = date.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
+    return formattedDate+" "+formattedTime;
+    
+        // let date = new Date(inpdate);
+        // let timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        // return timeString.replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
+    
 
 
-        // let dateObj = new Date(time24);
-        // let time12 = dateObj.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
-        // console.log(time12); 
-        // return time12;
-   }
-  return (
-    <LinearGradient  colors={["black", "yellow"]} start={{x: 0, y: 0.5}} end={{x: 1, y: 0.5}} style={styles.cardGradient}>
-    <View style={styles.card}>
-    <View style={styles.infocon}>
-        <View style={{...styles.icon,backgroundColor:"white"}}>
-            <FontAwesome name="trophy" color={"red"} size={20} style={styles.iconCont}/>
-        </View>
-            <View style={styles.textCont}>
-                <Text style={{ color: "white", fontWeight: 'bold',fontSize:20 }}>₹ {contactInfo.amount}</Text>
-                <Text  style={{ color: "white", fontWeight: 'bold',fontSize:15 }}>{fTime(contactInfo.created_at)}</Text>
-                <Text style={{ color: "white", fontWeight: 'bold' }}>Type : {contactInfo.trns_flag === "W" ? "Withdrawal" : (contactInfo.trns_flag === "D" ? "Deposit" : "Winning")}</Text>
+      // let dateObj = new Date(time24);
+      // let time12 = dateObj.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
+      // console.log(time12); 
+      // return time12;
+    }
+    return (
+      <LinearGradient colors={["black", "yellow"]} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} style={styles.cardGradient}>
+        <View style={styles.card}>
+          <View style={styles.infocon}>
+            <View style={{ ...styles.icon, backgroundColor: "white" }}>
+              <FontAwesome name="trophy" color={"red"} size={20} style={styles.iconCont} />
             </View>
-            
-            <View style={styles.btn}>
-          <Text style={styles.btn_text}> {contactInfo.status=="0" ? "Pending":"Success"}</Text>
-        </View>
-    </View>
-  
-</View>
-</LinearGradient>
-  )
-}
+            <View style={styles.textCont}>
+              <Text style={{ color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(2) }}>₹ {contactInfo.amount}</Text>
+              <Text style={{ color: "white", fontWeight: 'bold', fontSize: responsiveFontSize(1.8) }}>{fTime(contactInfo.created_at)}</Text>
+              <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.9) }}>Type : {contactInfo.trns_flag === "W" ? "Withdrawal" : (contactInfo.trns_flag === "D" ? "Deposit" : "Winning")}</Text>
+            </View>
 
-if(!gameTran){
-  return(
-    <ActivityIndicator size={32} />
-  );
-}
-console.log(gameTran.data);
+            <View style={styles.btn}>
+              <Text style={styles.btn_text}> {contactInfo.status == "0" ? "Pending" : "Success"}</Text>
+            </View>
+          </View>
+
+        </View>
+      </LinearGradient>
+    )
+  }
+
+  if (!gameTran) {
+    return (
+      <ActivityIndicator size={32} />
+    );
+  }
+  console.log(gameTran.data);
   return (
     <LinearGradient colors={['#0d00ff', '#e0ffe7']} style={styles.container}>
       <View style={styles.container}>
@@ -103,19 +107,19 @@ console.log(gameTran.data);
         </View>
         <View style={styles.gamelistcont}>
           <View style={styles.listGame}>
-             <FlatList
-             data={gameTran.data}
-             keyExtractor={(item)=>item.transaction_id} 
-             renderItem={({item})=>(
-             
-                    
+            <FlatList
+              data={gameTran.data}
+              keyExtractor={(item) => item.transaction_id}
+              renderItem={({ item }) => (
 
-                    <ContactList contactInfo={item}/> 
-              
-             
-              
+
+
+                <ContactList contactInfo={item} />
+
+
+
               )}
-              /> 
+            />
           </View>
         </View>
       </View>
@@ -135,7 +139,7 @@ const styles = StyleSheet.create({
   },
   gamelistcont: {
     flex: 73,
-    marginTop:5
+    marginTop: 5
   },
   topVieResPro2: {
     flex: 10,
@@ -160,27 +164,28 @@ const styles = StyleSheet.create({
 
 
   },
-  btn:{
-     
-    backgroundColor:"white",
-    padding:6,
-    borderRadius:5,
-    flex:2,
+  btn: {
+
+    backgroundColor: "white",
+    padding: 6,
+    borderRadius: 5,
+    flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
-     
-   },
-   btn_text:{
-     color:"black",
-     
-     fontWeight: 'bold',
-   },
+
+  },
+  btn_text: {
+    color: "black",
+
+    fontWeight: 'bold',
+    fontSize:responsiveFontSize(1.5)
+  },
 
   card: {
-    borderRadius:10,
+    borderRadius: 10,
   },
-  cardGradient:{
-    borderRadius:10,
+  cardGradient: {
+    borderRadius: 10,
     padding: 10,
     marginVertical: 5,
     marginHorizontal: 20,
@@ -188,28 +193,28 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     elevation: 3,
-    
-    
+
+
   },
 
   infocon: {
-    flexDirection:"row",
-    alignItems:'center',
-  //   paddingVertical:5
-},
-textCont:{
-    fontSize:18,
-    color:"white",
+    flexDirection: "row",
+    alignItems: 'center',
+    //   paddingVertical:5
+  },
+  textCont: {
+    fontSize: responsiveFontSize(2),
+    color: "white",
     flex: 7,
-},
-iconCont:{
-   flex:1,
-   paddingVertical:5,
-  //  color:'white',
-  //  marginHorizontal:10,
-   color:"black",
-   fontWeight: 'bold',
-},
+  },
+  iconCont: {
+    flex: 1,
+    paddingVertical: 5,
+    //  color:'white',
+    //  marginHorizontal:10,
+    color: "black",
+    fontWeight: 'bold',
+  },
 
 
 
@@ -221,7 +226,7 @@ iconCont:{
     justifyContent: "center",
   },
   textCont: {
-    fontSize: 18,
+    fontSize: responsiveFontSize(2.5),
     color: "white",
     flex: 7,
   },

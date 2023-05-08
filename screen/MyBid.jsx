@@ -7,6 +7,8 @@ import axios from 'axios'
 import { AuthContext } from '../src/context/AuthContext'
 import normalize from 'react-native-normalize';
 
+
+
 import {
   responsiveHeight,
   responsiveWidth,
@@ -158,6 +160,7 @@ const styles = StyleSheet.create({
   btn_text:{
     color:"black",
     fontWeight: 'bold',
+    fontSize:responsiveFontSize(1.8),
   },
 
 

@@ -4,9 +4,17 @@ import { AuthContext } from '../src/context/AuthContext';
 import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
 import { BASE_URL } from '../src/config';
+import normalize from 'react-native-normalize';
+
 
 import HeaderComp from '../component/HeaderComp';
 import HomeCustComp from '../component/HomeCustComp';
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
+import { registerCustomIconType } from 'react-native-elements';
 
 // const BASE_URL = 'http://ghoshffplay.in/api';
 const MybidResult = ({ navigation, route }) => {
@@ -38,9 +46,14 @@ const MybidResult = ({ navigation, route }) => {
   }, [route.params.gameNameInfo.id]);
 
   const datF=(inpdate)=>{
-    let date = new Date(inpdate);
-    let timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    return timeString.replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
+    const date = new Date(inpdate);
+const formattedDate = date.toLocaleDateString("en-US", { day: "2-digit", month: "2-digit", year: "numeric" });
+const formattedTime = date.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
+return formattedDate+" "+formattedTime;
+
+    // let date = new Date(inpdate);
+    // let timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    // return timeString.replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
   }
 
   const RenderTable = ({contactInfo}) => {
@@ -57,24 +70,24 @@ const MybidResult = ({ navigation, route }) => {
       <View style={styles.infocon}>
          
               <View style={styles.textCont}>
-                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:18 }}>Date</Text>
+                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.6) }}>Date</Text>
 
-                  <Text style={{ color: "white", fontWeight: 'bold' }}>{datF(created_at)}</Text>
+                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.3),padding:normalize(3) }}>{datF(created_at)}</Text>
               </View>
               <View style={styles.textCont}>
-                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:18 }}>Single</Text>
-                  <Text  style={{ color: "white", fontWeight: 'bold' }}>{single}</Text>
-                  <Text style={{ color: "white", fontWeight: 'bold' }}>₹ {single_amt}</Text>
+                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(2) }}>Single</Text>
+                  <Text  style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.6) }}>{single}</Text>
+                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.6) }}>₹ {single_amt}</Text>
               </View>
               <View style={styles.textCont}>
-                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:18  }}>Jodi</Text>
-                  <Text  style={{ color: "white", fontWeight: 'bold'}}>{jodi}</Text>
-                  <Text style={{ color: "white", fontWeight: 'bold' }}>₹ {jodi_amt}</Text>
+                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(2)  }}>Jodi</Text>
+                  <Text  style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.6)}}>{jodi}</Text>
+                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.6) }}>₹ {jodi_amt}</Text>
               </View>
               <View style={styles.textCont}>
-                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:20 }}>Patti</Text>
-                  <Text  style={{ color: "white", fontWeight: 'bold' }}>{patti}</Text>
-                  <Text style={{ color: "white", fontWeight: 'bold' }}>₹ {patti_amt}</Text>
+                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(2) }}>Patti</Text>
+                  <Text  style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.6) }}>{patti}</Text>
+                  <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.6) }}>₹ {patti_amt}</Text>
               </View>
               
               
@@ -145,14 +158,14 @@ const styles = StyleSheet.create({
   },
   gamelistcont: {
     flex: 73,
-    marginTop:5
+    marginTop:normalize(5)
   },
     card: {
         borderRadius: 10,
     },
     cardGradient: {
-        borderRadius: 10,
-        padding: 10,
+        borderRadius: normalize(10),
+        padding: normalize(10),
         marginVertical: 5,
         marginHorizontal: 20,
         shadowColor: '#000',
@@ -174,25 +187,25 @@ const styles = StyleSheet.create({
         //   paddingVertical:5
     },
     textCont: {
-        fontSize: 18,
+        fontSize: responsiveFontSize(1.3),
         color: "white",
         flex: 7,
     },
     iconCont: {
         flex: 1,
-        paddingVertical: 5,
+        paddingVertical: normalize(5),
         //  color:'white',
         //  marginHorizontal:10,
         color: "black",
         fontWeight: 'bold',
     },
     icon: {
-        borderRadius: 25,
-        aspectRatio: 1,
+        borderRadius: normalize(25),
+        aspectRatio: normalize(1),
         alignItems: "center",
         justifyContent: "center",
-        marginRight: 15,
-        padding: 1,
+        marginRight: normalize(15),
+        padding: normalize(1),
         backgroundColor: "green",
         flex: 1,
     },

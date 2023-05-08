@@ -9,6 +9,11 @@ import HomeCustComp from '../component/HomeCustComp'
 import HeaderComp from '../component/HeaderComp'
 import normalize from 'react-native-normalize';
 import { format } from 'date-fns';
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 // const BASE_URL = 'http://ghoshffplay.in/api';
 const MyBidGameTime = ( {navigation,route }) => {
@@ -45,9 +50,9 @@ const MyBidGameTime = ( {navigation,route }) => {
                 <FontAwesome name="trophy" color={"red"} size={normalize(20)} style={styles.iconCont}/>
             </View>
                 <View style={styles.textCont}>
-                    <Text style={{ color: "white", fontWeight: 'bold' }}>Game Time</Text>
-                    <Text  style={{ color: "white", fontWeight: 'bold',fontSize:normalize(20) }}>{fTime(game_time)}</Text>
-                    <Text style={{ color: "white", fontWeight: 'bold' }}>Result : {fTime(result_time)}</Text>
+                    <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.8) }}>Game Time</Text>
+                    <Text  style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(2.5) }}>{fTime(game_time)}</Text>
+                    <Text style={{ color: "white", fontWeight: 'bold',fontSize:responsiveFontSize(1.8) }}>Result : {fTime(result_time)}</Text>
                 </View>
                 
                 <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate('MybidResult',{
@@ -170,6 +175,7 @@ const styles = StyleSheet.create({
       color:"black",
       
       fontWeight: 'bold',
+      fontSize:responsiveFontSize(2)
     },
   
   

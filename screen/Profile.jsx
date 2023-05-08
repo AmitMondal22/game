@@ -5,6 +5,11 @@ import HeaderComp from '../component/HeaderComp';
 import HomeCustComp from '../component/HomeCustComp';
 import { AuthContext } from '../src/context/AuthContext';
 import normalize from 'react-native-normalize';
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 const Profile = ({ navigation}) => {
     const { userInfo, isLoading } = useContext(AuthContext);
@@ -43,7 +48,7 @@ console.log(userInfo.user)
             </View>
             <View style={styles.card_container}>
             <TouchableOpacity onPress={logout} style={styles.btnwp}>
-                <Text style={{ color: 'white',justifyContent:"center",alignContent:"center"}}>Log Out</Text>
+                <Text style={{ color: 'white',justifyContent:"center",alignContent:"center",fontSize:responsiveFontSize(2)}}>Log Out</Text>
               </TouchableOpacity>
                 </View>
           </View>
@@ -108,7 +113,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   textCont: {
-    fontSize: normalize(18),
+    fontSize: responsiveFontSize(1.8),
     color: "black",
     flex: 7,
   },

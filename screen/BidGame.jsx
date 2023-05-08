@@ -8,6 +8,11 @@ import HeaderComp from '../component/HeaderComp';
 import HomeCustComp from '../component/HomeCustComp';
 import normalize from 'react-native-normalize';
 import { showMessage, hideMessage  } from "react-native-flash-message";
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 const BidGame = ({ navigation, route }) => {
     // const BASE_URL = 'http://ghoshffplay.in/api';
@@ -76,7 +81,16 @@ const BidGame = ({ navigation, route }) => {
                       textAlign: 'center',
                     },
                   });
-                navigation.navigate('MyBid')
+                // navigation.navigate('MyBid')
+
+
+                setnumbe("");
+                setJodisetnumbe("");
+                setPattisetnumbe("");
+                setSingleAmtsetnumbe("");
+                setJodiAmtsetnumbe("");
+                setPattiAmtsetnumbe("");
+                
               }else{
                 showMessage({
                     message: "invalid input" ,
@@ -138,7 +152,7 @@ const BidGame = ({ navigation, route }) => {
                 <View style={styles.card_container1}>
                     <View style={styles.card_container}>
                         <View style={styles.column}>
-                            <Text>Single</Text>
+                            <Text style={{fontSize:responsiveFontSize(2),color:"white"}}>Single</Text>
                             <TextInput
                                 color="black"
                                 textAlign="center"
@@ -166,7 +180,7 @@ const BidGame = ({ navigation, route }) => {
                             />
                         </View>
                         <View style={styles.column2}>
-                            <Text>Jodi</Text>
+                            <Text  style={{fontSize:responsiveFontSize(2),color:"white"}}>Jodi</Text>
                             <TextInput
                                 color="black"
                                 textAlign="center"
@@ -196,7 +210,7 @@ const BidGame = ({ navigation, route }) => {
                             />
                         </View>
                         <View style={styles.column3}>
-                            <Text>Patti</Text>
+                            <Text  style={{fontSize:responsiveFontSize(2),color:"white"}}>Patti</Text>
                             <TextInput
                                 color="black"
                                 textAlign="center"
@@ -232,7 +246,7 @@ const BidGame = ({ navigation, route }) => {
                         <TouchableOpacity style={styles.sav} onPress={()=>{
                   submitData()
                 }}>
-                  <Text style={{ color: '#05386B', fontWeight: 'bold', fontSize: normalize(20) }}>Submit</Text>
+                  <Text style={{ color: '#05386B', fontWeight: 'bold', fontSize: responsiveFontSize(3) }}>Submit</Text>
                 </TouchableOpacity>
                 </View>
                     </View>

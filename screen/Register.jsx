@@ -38,8 +38,11 @@ const Register = ({ navigation }) => {
     
       setIsLoading(true);
 
-      await axios.post(`${BASE_URL}/create-account`, {
-          name, mobile, password
+      await axios.post(`${BASE_URL}/create-account`, 
+      {
+        name: userName,
+        mobile: mobileNo,
+        password: userPassword
       }).then(res => {
           let userInfo = res.data;
           console.log(userInfo);

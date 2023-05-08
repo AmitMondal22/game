@@ -113,7 +113,7 @@ const Home = ({ navigation }) => {
      
 
         <MarqueeText
-          style={{ fontSize: normalize(25),color:"white",marginHorizontal:normalize(20) }}
+          style={{ fontSize: responsiveFontSize(2),color:"white",marginHorizontal:normalize(20),marginTop:normalize(15) }}
           speed={0.10}
           marqueeOnStart={true}
           loop={true}
